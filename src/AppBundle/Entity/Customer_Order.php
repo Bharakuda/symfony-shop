@@ -29,9 +29,9 @@ class Customer_Order
     private $customerId;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=4)
      */
     private $price;
 
@@ -122,7 +122,7 @@ class Customer_Order
     /**
      * Set price
      *
-     * @param float $price
+     * @param string $price
      *
      * @return Customer_Order
      */
@@ -136,7 +136,7 @@ class Customer_Order
     /**
      * Get price
      *
-     * @return float
+     * @return string
      */
     public function getPrice()
     {
