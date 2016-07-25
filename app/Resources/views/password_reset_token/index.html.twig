@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Password_Reset_Token list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Token</th>
+                <th>Customerid</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for password_Reset_Token in password_Reset_Tokens %}
+            <tr>
+                <td><a href="{{ path('password_reset_token_show', { 'id': password_Reset_Token.id }) }}">{{ password_Reset_Token.id }}</a></td>
+                <td>{{ password_Reset_Token.token }}</td>
+                <td>{{ password_Reset_Token.customerId }}</td>
+                <td>{% if password_Reset_Token.created %}{{ password_Reset_Token.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('password_reset_token_show', { 'id': password_Reset_Token.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('password_reset_token_edit', { 'id': password_Reset_Token.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('password_reset_token_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

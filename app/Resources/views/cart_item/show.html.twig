@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cart_Item</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cart_Item.id }}</td>
+            </tr>
+            <tr>
+                <th>Cartid</th>
+                <td>{{ cart_Item.cartId }}</td>
+            </tr>
+            <tr>
+                <th>Productid</th>
+                <td>{{ cart_Item.productId }}</td>
+            </tr>
+            <tr>
+                <th>Qty</th>
+                <td>{{ cart_Item.qty }}</td>
+            </tr>
+            <tr>
+                <th>Unitprice</th>
+                <td>{{ cart_Item.unitPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cart_item_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cart_item_edit', { 'id': cart_Item.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer_Order list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customerid</th>
+                <th>Price</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Telephone</th>
+                <th>Paymentcode</th>
+                <th>Shipmentcode</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for customer_Order in customer_Orders %}
+            <tr>
+                <td><a href="{{ path('customer_order_show', { 'id': customer_Order.id }) }}">{{ customer_Order.id }}</a></td>
+                <td>{{ customer_Order.customerId }}</td>
+                <td>{{ customer_Order.price }}</td>
+                <td>{{ customer_Order.firstName }}</td>
+                <td>{{ customer_Order.lastName }}</td>
+                <td>{{ customer_Order.address }}</td>
+                <td>{{ customer_Order.country }}</td>
+                <td>{{ customer_Order.telephone }}</td>
+                <td>{{ customer_Order.paymentCode }}</td>
+                <td>{{ customer_Order.shipmentCode }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('customer_order_show', { 'id': customer_Order.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('customer_order_edit', { 'id': customer_Order.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('customer_order_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

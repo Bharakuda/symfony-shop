@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer_Order</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ customer_Order.id }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ customer_Order.customerId }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ customer_Order.price }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ customer_Order.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ customer_Order.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ customer_Order.address }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ customer_Order.country }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ customer_Order.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Paymentcode</th>
+                <td>{{ customer_Order.paymentCode }}</td>
+            </tr>
+            <tr>
+                <th>Shipmentcode</th>
+                <td>{{ customer_Order.shipmentCode }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('customer_order_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('customer_order_edit', { 'id': customer_Order.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
